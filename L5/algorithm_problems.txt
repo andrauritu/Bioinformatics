@@ -1,0 +1,22 @@
+Lab solved by: Uritu Andra-Ioana, 1241EB
+
+The main problem with this DNA reconstruction algorithm is repetitive sequences. 
+
+When DNA has the same pattern repeated multiple times, the algorithm gets confused about where each piece belongs. 
+For example, if the original sequence is ATCGATCGATCGATCG and we have random samples like ATCGATCG, the algorithm cannot
+tell if this piece goes at the beginning, middle, or end because the pattern ATCG is repeated everywhere.
+
+I consider this similar to trying to solve a puzzle with many identical pieces and you cannot tell which identical piece goes where.
+This way, because of this, you end up putting them in the wrong places.
+
+Another problem is when sequences have very few different letters, like AAAAAAAAAA. 
+In this case, every piece ends with AAA and starts with AAA, so the algorithm thinks everything overlaps with everything else, even when it should not.
+
+
+Abother major issue I noticed is that the algorithm gives very inconsistent results. 
+Sometimes it achieves 80% accuracy, other times only 0.3% accuracy, even when using the same code. 
+This happens because the algorithm depends a lot  on finding a good starting sample that matches the beginning of the original sequence. 
+When random sampling is lucky and creates a sample that starts from position 0, the algorithm works well. 
+But when no sample starts from the beginning, the algorithm has to guess the best starting point.
+It is sometimes choosing poorly and reconstructing from the middle of the sequence instead. 
+This makes the entire reconstruction wrong from the start, leading to very low accuracy.
